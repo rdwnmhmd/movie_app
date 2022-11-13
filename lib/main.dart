@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/logic/bloc/crypto/crypto_bloc.dart';
 import 'package:movie_app/logic/bloc/outlet/outlet_bloc.dart';
-import 'package:movie_app/views/crypto/crypto_view.dart';
 import 'package:movie_app/views/outlet/outlet_view.dart';
 
 void main() async {

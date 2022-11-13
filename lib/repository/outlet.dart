@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:arstate/arstate.dart';
 import '../models/model_outlet/outlet.dart';
 import 'http.dart';
@@ -13,6 +15,7 @@ class OutletRepository {
     return await http.get(
       'store',
       onSuccess: (response) {
+        log(response.toString());
         return OutletResult.fromJson(response.data).data;
       },
       authorization: true,

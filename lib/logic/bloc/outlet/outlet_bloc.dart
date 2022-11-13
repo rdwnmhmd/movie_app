@@ -9,7 +9,6 @@ import 'package:movie_app/repository/crypto.dart';
 
 import '../../../models/model_post/post.dart';
 import '../../../repository/outlet.dart';
-import '../../../repository/post.dart';
 part 'outlet_bloc.freezed.dart';
 part 'outlet_event.dart';
 part 'outlet_state.dart';
@@ -29,11 +28,10 @@ class OutletBloc extends Bloc<OutletEvent, OutletState> {
             await OutletRepository().show();
         apiResult.when(
           success: (data) async {
-            log(data.length.toString());
+            // log(data.length.toString());
             emit(OutletState.loadedShow(data));
           },
           failure: (NetworkExceptions error) async {
-            log('error');
             emit(_getErrorState(error));
           },
         );
