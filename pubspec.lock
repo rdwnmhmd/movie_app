@@ -32,14 +32,14 @@ packages:
   arstate:
     dependency: "direct main"
     description:
-      path: "../github_arya/arstate"
+      path: "../arstate"
       relative: true
     source: path
     version: "0.0.1"
   arx:
     dependency: "direct main"
     description:
-      path: "../github_arya/arx"
+      path: "../arx"
       relative: true
     source: path
     version: "0.0.1"
@@ -305,7 +305,7 @@ packages:
   flag:
     dependency: transitive
     description:
-      path: "../github_arya/flag"
+      path: "../flag"
       relative: true
     source: path
     version: "6.0.0"
@@ -1072,5 +1072,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.18.4 <3.0.0"
+  dart: ">=2.18.1 <3.0.0"
   flutter: ">=3.3.0"
