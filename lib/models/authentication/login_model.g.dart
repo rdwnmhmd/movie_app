@@ -1,0 +1,82 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'login_model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_AuthModel _$$_AuthModelFromJson(Map<String, dynamic> json) => _$_AuthModel(
+      accessToken: json['access_token'] as String,
+      tokenType: json['token_type'] as String,
+    );
+
+Map<String, dynamic> _$$_AuthModelToJson(_$_AuthModel instance) =>
+    <String, dynamic>{
+      'access_token': instance.accessToken,
+      'token_type': instance.tokenType,
+    };
+
+_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+      id: json['id'] as int?,
+      roles: (json['roles'] as List<dynamic>?)
+          ?.map((e) => Roles.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
+      profilePhotoUrl: json['profilePhotoUrl'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+      isPasswordNull: json['isPasswordNull'] as bool?,
+      bankAccounts: (json['bankAccounts'] as List<dynamic>?)
+          ?.map((e) => BankAccount.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+      'id': instance.id,
+      'roles': instance.roles,
+      'name': instance.name,
+      'email': instance.email,
+      'phoneNumber': instance.phoneNumber,
+      'profilePhotoUrl': instance.profilePhotoUrl,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+      'isPasswordNull': instance.isPasswordNull,
+      'bankAccounts': instance.bankAccounts,
+    };
+
+_$_Roles _$$_RolesFromJson(Map<String, dynamic> json) => _$_Roles(
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$$_RolesToJson(_$_Roles instance) => <String, dynamic>{
+      'name': instance.name,
+    };
+
+_$_LoginRequest _$$_LoginRequestFromJson(Map<String, dynamic> json) =>
+    _$_LoginRequest(
+      email: json['email'] as String,
+      password: json['password'] as String,
+    );
+
+Map<String, dynamic> _$$_LoginRequestToJson(_$_LoginRequest instance) =>
+    <String, dynamic>{
+      'email': instance.email,
+      'password': instance.password,
+    };
+
+_$_RegisterRequest _$$_RegisterRequestFromJson(Map<String, dynamic> json) =>
+    _$_RegisterRequest(
+      name: json['name'] as String,
+      email: json['email'] as String,
+      password: json['password'] as String,
+    );
+
+Map<String, dynamic> _$$_RegisterRequestToJson(_$_RegisterRequest instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'email': instance.email,
+      'password': instance.password,
+    };

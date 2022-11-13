@@ -1,0 +1,33 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'post.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
+      id: json['id'] as int,
+      title: json['title'] as String,
+      slug: json['slug'] as String,
+      description: json['description'] as String,
+      content: json['content'] as String?,
+      tags: json['tags'] as String?,
+      hasFavorited: json['has_favorited'] as bool?,
+      createdAt: json['created_at'] as String,
+      imageUrl: json['image_url'] as String,
+      category: PostCategory.fromJson(json['category'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'slug': instance.slug,
+      'description': instance.description,
+      'content': instance.content,
+      'tags': instance.tags,
+      'has_favorited': instance.hasFavorited,
+      'created_at': instance.createdAt,
+      'image_url': instance.imageUrl,
+      'category': instance.category,
+    };
