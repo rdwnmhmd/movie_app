@@ -16,8 +16,8 @@ class XHttp {
   XHttp({String? xBaseUrl, Interceptors? this.interceptors}) {
     // get api base url from .env file
     // baseUrl = xBaseUrl ?? 'https://rumahpeluang.com/api';
-    baseUrl = xBaseUrl ?? 'https://aviramawp.com/api';
-
+    baseUrl = xBaseUrl ??
+        'https://api.themoviedb.org/3/discover/movie?api_key=f7db9854f528f8981be41750b1279725';
     // set options
     _dio = Dio(BaseOptions(
       baseUrl: baseUrl,
@@ -122,7 +122,7 @@ class XHttp {
     // Auth auth = Auth();
     // if (auth.isAuth) {
     _dio.options.headers['Authorization'] =
-        'Bearer 1128|N8EvGjw63fUEu3nt9j22pEfE5gHll7Ly394U1OG9';
+        'Bearer f7db9854f528f8981be41750b1279725';
     // }
   }
 

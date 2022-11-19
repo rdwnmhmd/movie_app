@@ -30,9 +30,9 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   arstate:
-    path: ../arstate
+    path: ../github_arya/arstate
   arx:
-    path: ../arx
+    path: ../github_arya/arx
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter

@@ -9,11 +9,15 @@ part of 'outlet.dart';
 _$_Outlet _$$_OutletFromJson(Map<String, dynamic> json) => _$_Outlet(
       id: json['id'] as int,
       name: json['name'] as String,
+      address: json['address'] as String,
+      long: (json['long'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_OutletToJson(_$_Outlet instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'address': instance.address,
+      'long': instance.long,
     };
 
 _$_ListOutlet _$$_ListOutletFromJson(Map<String, dynamic> json) =>

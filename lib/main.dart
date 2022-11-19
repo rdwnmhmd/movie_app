@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/logic/bloc/outlet/outlet_bloc.dart';
-import 'package:movie_app/views/outlet/outlet_view.dart';
+import 'package:movie_app/models/model_bank_account/bank_account_model.dart';
+import 'package:movie_app/views/bank_account/bank_accounts_view.dart';
 
 //tes commit
 void main() async {
@@ -46,7 +47,7 @@ class Myhome extends StatelessWidget {
               create: (context) => OutletBloc()..add(const OutletEvent.show()),
             ),
           ],
-          child: const OutletPage(),
+          child: const BankAccountPage(),
         ),
       ),
     );

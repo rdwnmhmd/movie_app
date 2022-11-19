@@ -7,9 +7,9 @@ class Outlet with _$Outlet {
   const factory Outlet({
     required int id,
     required String name,
-    // required String address,
-    // required double long,
-    // required double lang,
+    required String address,
+    double? long,
+    // double? lang,
     // String? radius,
     // @JsonKey(name: "deleted_at") String? deletedAt,
     // @JsonKey(name: "created_at") String? createdAt,

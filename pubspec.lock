@@ -32,14 +32,14 @@ packages:
   arstate:
     dependency: "direct main"
     description:
-      path: "../arstate"
+      path: "../github_arya/arstate"
       relative: true
     source: path
     version: "0.0.1"
   arx:
     dependency: "direct main"
     description:
-      path: "../arx"
+      path: "../github_arya/arx"
       relative: true
     source: path
     version: "0.0.1"
@@ -305,7 +305,7 @@ packages:
   flag:
     dependency: transitive
     description:
-      path: "../flag"
+      path: "../github_arya/flag"
       relative: true
     source: path
     version: "6.0.0"

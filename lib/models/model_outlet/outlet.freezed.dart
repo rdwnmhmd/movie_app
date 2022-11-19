@@ -22,6 +22,8 @@ Outlet _$OutletFromJson(Map<String, dynamic> json) {
 mixin _$Outlet {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  double? get long => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -29,7 +31,9 @@ mixin _$Outlet {
 /// @nodoc
 @JsonSerializable()
 class _$_Outlet extends _Outlet {
-  const _$_Outlet({required this.id, required this.name}) : super._();
+  const _$_Outlet(
+      {required this.id, required this.name, required this.address, this.long})
+      : super._();
 
   factory _$_Outlet.fromJson(Map<String, dynamic> json) =>
       _$$_OutletFromJson(json);
@@ -38,10 +42,14 @@ class _$_Outlet extends _Outlet {
   final int id;
   @override
   final String name;
+  @override
+  final String address;
+  @override
+  final double? long;
 
   @override
   String toString() {
-    return 'Outlet(id: $id, name: $name)';
+    return 'Outlet(id: $id, name: $name, address: $address, long: $long)';
   }
 
   @override
@@ -53,8 +61,11 @@ class _$_Outlet extends _Outlet {
 }
 
 abstract class _Outlet extends Outlet {
-  const factory _Outlet({required final int id, required final String name}) =
-      _$_Outlet;
+  const factory _Outlet(
+      {required final int id,
+      required final String name,
+      required final String address,
+      final double? long}) = _$_Outlet;
   const _Outlet._() : super._();
 
   factory _Outlet.fromJson(Map<String, dynamic> json) = _$_Outlet.fromJson;
@@ -63,6 +74,10 @@ abstract class _Outlet extends Outlet {
   int get id;
   @override
   String get name;
+  @override
+  String get address;
+  @override
+  double? get long;
 }
 
 OutletResult _$OutletResultFromJson(Map<String, dynamic> json) {

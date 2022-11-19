@@ -5,8 +5,6 @@ import 'package:arstate/arstate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:movie_app/models/model_outlet/outlet.dart';
-import 'package:movie_app/repository/crypto.dart';
-
 import '../../../models/model_post/post.dart';
 import '../../../repository/outlet.dart';
 part 'outlet_bloc.freezed.dart';
