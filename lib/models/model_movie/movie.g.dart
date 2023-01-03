@@ -13,6 +13,7 @@ _$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
       backdropPath: json['backdrop_path'] as String,
       posterPath: json['poster_path'] as String,
       releaseDate: json['release_date'] as String,
+      voteAverage: (json['vote_average'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
       'backdrop_path': instance.backdropPath,
       'poster_path': instance.posterPath,
       'release_date': instance.releaseDate,
+      'vote_average': instance.voteAverage,
     };
 
 _$_ListMovie _$$_ListMovieFromJson(Map<String, dynamic> json) => _$_ListMovie(

@@ -16,8 +16,7 @@ class XHttp {
   XHttp({String? xBaseUrl, Interceptors? this.interceptors}) {
     // get api base url from .env file
     // baseUrl = xBaseUrl ?? 'https://rumahpeluang.com/api';
-    baseUrl = xBaseUrl ??
-        'https://api.themoviedb.org/3/discover/movie?api_key=f7db9854f528f8981be41750b1279725';
+    baseUrl = xBaseUrl ?? 'https://api.themoviedb.org/api';
     // set options
     _dio = Dio(BaseOptions(
       baseUrl: baseUrl,

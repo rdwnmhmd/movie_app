@@ -1,0 +1,52 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'movie_model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_MovieAuthModel _$$_MovieAuthModelFromJson(Map<String, dynamic> json) =>
+    _$_MovieAuthModel(
+      code: json['code'] as int,
+      message: json['message'] as String,
+    );
+
+Map<String, dynamic> _$$_MovieAuthModelToJson(_$_MovieAuthModel instance) =>
+    <String, dynamic>{
+      'code': instance.code,
+      'message': instance.message,
+    };
+
+_$_MovieLoginRequest _$$_MovieLoginRequestFromJson(Map<String, dynamic> json) =>
+    _$_MovieLoginRequest(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      email: json['email'] as String,
+      token: json['token'] as String,
+    );
+
+Map<String, dynamic> _$$_MovieLoginRequestToJson(
+        _$_MovieLoginRequest instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'email': instance.email,
+      'token': instance.token,
+    };
+
+_$_MovieRegisterRequest _$$_MovieRegisterRequestFromJson(
+        Map<String, dynamic> json) =>
+    _$_MovieRegisterRequest(
+      name: json['name'] as String,
+      email: json['email'] as String,
+      password: json['password'] as String,
+    );
+
+Map<String, dynamic> _$$_MovieRegisterRequestToJson(
+        _$_MovieRegisterRequest instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'email': instance.email,
+      'password': instance.password,
+    };

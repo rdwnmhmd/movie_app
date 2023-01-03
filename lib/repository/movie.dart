@@ -9,21 +9,33 @@ class MovieRepository {
   late XHttp http;
 
   MovieRepository() {
-    http = XHttp(
-        xBaseUrl:
-            'https://api.themoviedb.org/3/discover/movie?api_key=f7db9854f528f8981be41750b1279725');
+    http = XHttp(xBaseUrl: 'https://api.themoviedb.org/3');
   }
 
   Future<ApiResult<List<Movie>>> show() async {
     return await http.get(
-      '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate',
+      // '/discover/movie?api_key=f7db9854f528f8981be41750b1279725',
+      '/trending/movie/week?api_key=f7db9854f528f8981be41750b1279725',
+
       onSuccess: (response) {
         log(response.toString());
+        log('>>>>>>>');
         return MovieResult.fromJson(response.data).results;
       },
       authorization: true,
     );
   }
+
+  // Future<ApiResult<List<Movie>>> showAll() async {
+  //   return await http.get(
+  //     '/discover/movie?api_key=f7db9854f528f8981be41750b1279725',
+  //     onSuccess: (response) {
+  //       log('$response >>>>>>');
+  //       return MovieTrending.fromJson(response.data).results;
+  //     },
+  //     authorization: true,
+  //   );
+  // }
 }
 
 //   Future<ApiResult<List<BankAccount>>> showAll() async {

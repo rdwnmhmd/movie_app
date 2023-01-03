@@ -29,6 +29,8 @@ mixin _$Movie {
   String get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: "release_date")
   String get releaseDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "vote_average")
+  double get voteAverage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -42,7 +44,8 @@ class _$_Movie extends _Movie {
       required this.overview,
       @JsonKey(name: "backdrop_path") required this.backdropPath,
       @JsonKey(name: "poster_path") required this.posterPath,
-      @JsonKey(name: "release_date") required this.releaseDate})
+      @JsonKey(name: "release_date") required this.releaseDate,
+      @JsonKey(name: "vote_average") required this.voteAverage})
       : super._();
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
@@ -63,10 +66,13 @@ class _$_Movie extends _Movie {
   @override
   @JsonKey(name: "release_date")
   final String releaseDate;
+  @override
+  @JsonKey(name: "vote_average")
+  final double voteAverage;
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, overview: $overview, backdropPath: $backdropPath, posterPath: $posterPath, releaseDate: $releaseDate)';
+    return 'Movie(id: $id, title: $title, overview: $overview, backdropPath: $backdropPath, posterPath: $posterPath, releaseDate: $releaseDate, voteAverage: $voteAverage)';
   }
 
   @override
@@ -84,7 +90,8 @@ abstract class _Movie extends Movie {
           required final String overview,
           @JsonKey(name: "backdrop_path") required final String backdropPath,
           @JsonKey(name: "poster_path") required final String posterPath,
-          @JsonKey(name: "release_date") required final String releaseDate}) =
+          @JsonKey(name: "release_date") required final String releaseDate,
+          @JsonKey(name: "vote_average") required final double voteAverage}) =
       _$_Movie;
   const _Movie._() : super._();
 
@@ -105,6 +112,9 @@ abstract class _Movie extends Movie {
   @override
   @JsonKey(name: "release_date")
   String get releaseDate;
+  @override
+  @JsonKey(name: "vote_average")
+  double get voteAverage;
 }
 
 MovieResult _$MovieResultFromJson(Map<String, dynamic> json) {
