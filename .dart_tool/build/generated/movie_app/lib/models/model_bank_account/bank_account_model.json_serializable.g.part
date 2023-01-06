@@ -1,0 +1,61 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_BankAccountModel _$$_BankAccountModelFromJson(Map<String, dynamic> json) =>
+    _$_BankAccountModel(
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) => BankAccount.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      links: json['links'] == null
+          ? null
+          : Links.fromJson(json['links'] as Map<String, dynamic>),
+      meta: json['meta'] == null
+          ? null
+          : Meta.fromJson(json['meta'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_BankAccountModelToJson(_$_BankAccountModel instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'links': instance.links,
+      'meta': instance.meta,
+    };
+
+_$_BankAccount _$$_BankAccountFromJson(Map<String, dynamic> json) =>
+    _$_BankAccount(
+      id: json['id'] as int,
+      userId: json['user_id'] as String,
+      bank: json['bank'] as String,
+      accountName: json['account_name'] as String,
+      accountNumber: json['account_number'] as String,
+      createdAt: json['created_at'] as String,
+      updatedAt: json['updated_at'] as String,
+    );
+
+Map<String, dynamic> _$$_BankAccountToJson(_$_BankAccount instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'user_id': instance.userId,
+      'bank': instance.bank,
+      'account_name': instance.accountName,
+      'account_number': instance.accountNumber,
+      'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
+    };
+
+_$_BankAccountRequest _$$_BankAccountRequestFromJson(
+        Map<String, dynamic> json) =>
+    _$_BankAccountRequest(
+      bank: json['bank'] as String,
+      accountName: json['account_name'] as String,
+      accountNumber: json['account_number'] as String,
+    );
+
+Map<String, dynamic> _$$_BankAccountRequestToJson(
+        _$_BankAccountRequest instance) =>
+    <String, dynamic>{
+      'bank': instance.bank,
+      'account_name': instance.accountName,
+      'account_number': instance.accountNumber,
+    };
