@@ -9,3 +9,14 @@ class MovieState with _$MovieState {
 
   const factory MovieState.loadedShow(List<Movie> movie) = _LoadedShow;
 }
+
+@freezed
+class MovieStatePopular with _$MovieStatePopular {
+  const factory MovieStatePopular.initial() = _InitialPopular;
+  const factory MovieStatePopular.isLoading() = _IsLoadingPopular;
+  const factory MovieStatePopular.isError(NetworkExceptions networkExceptions) =
+      _IsErrorPopular;
+
+  const factory MovieStatePopular.loadedShow(List<MoviePopular> moviePopular) =
+      _LoadedShowPopular;
+}

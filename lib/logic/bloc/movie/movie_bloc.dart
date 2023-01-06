@@ -42,3 +42,38 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     return const MovieState.isLoading();
   }
 }
+
+class MovieBlocPopular extends Bloc<MovieEvent, MovieStatePopular> {
+  MovieBlocPopular() : super(const _InitialPopular()) {
+    on<MovieEvent>(_onMovieEventPopular);
+  }
+
+  Future<void> _onMovieEventPopular(
+      MovieEvent event, Emitter<MovieStatePopular> emit) async {
+    await event.when(
+      started: () async {},
+      show: () async {
+        emit(_getLoadingState());
+        final ApiResult<List<MoviePopular>> apiResult =
+            await MovieRepository().showAll();
+        apiResult.when(
+          success: (data) async {
+            // log(data.length.toString());
+            emit(MovieStatePopular.loadedShow(data));
+          },
+          failure: (NetworkExceptions error) async {
+            emit(_getErrorState(error));
+          },
+        );
+      },
+    );
+  }
+
+  MovieStatePopular _getErrorState(NetworkExceptions networkExceptions) {
+    return MovieStatePopular.isError(networkExceptions);
+  }
+
+  MovieStatePopular _getLoadingState() {
+    return const MovieStatePopular.isLoading();
+  }
+}

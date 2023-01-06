@@ -380,3 +380,257 @@ abstract class _LoadedShow implements MovieState {
 
   List<Movie> get movie;
 }
+
+/// @nodoc
+mixin _$MovieStatePopular {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() isLoading,
+    required TResult Function(NetworkExceptions networkExceptions) isError,
+    required TResult Function(List<MoviePopular> moviePopular) loadedShow,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? isLoading,
+    TResult? Function(NetworkExceptions networkExceptions)? isError,
+    TResult? Function(List<MoviePopular> moviePopular)? loadedShow,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? isLoading,
+    TResult Function(NetworkExceptions networkExceptions)? isError,
+    TResult Function(List<MoviePopular> moviePopular)? loadedShow,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+
+class _$_InitialPopular implements _InitialPopular {
+  const _$_InitialPopular();
+
+  @override
+  String toString() {
+    return 'MovieStatePopular.initial()';
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() isLoading,
+    required TResult Function(NetworkExceptions networkExceptions) isError,
+    required TResult Function(List<MoviePopular> moviePopular) loadedShow,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? isLoading,
+    TResult? Function(NetworkExceptions networkExceptions)? isError,
+    TResult? Function(List<MoviePopular> moviePopular)? loadedShow,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? isLoading,
+    TResult Function(NetworkExceptions networkExceptions)? isError,
+    TResult Function(List<MoviePopular> moviePopular)? loadedShow,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitialPopular implements MovieStatePopular {
+  const factory _InitialPopular() = _$_InitialPopular;
+}
+
+/// @nodoc
+
+class _$_IsLoadingPopular implements _IsLoadingPopular {
+  const _$_IsLoadingPopular();
+
+  @override
+  String toString() {
+    return 'MovieStatePopular.isLoading()';
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() isLoading,
+    required TResult Function(NetworkExceptions networkExceptions) isError,
+    required TResult Function(List<MoviePopular> moviePopular) loadedShow,
+  }) {
+    return isLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? isLoading,
+    TResult? Function(NetworkExceptions networkExceptions)? isError,
+    TResult? Function(List<MoviePopular> moviePopular)? loadedShow,
+  }) {
+    return isLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? isLoading,
+    TResult Function(NetworkExceptions networkExceptions)? isError,
+    TResult Function(List<MoviePopular> moviePopular)? loadedShow,
+    required TResult orElse(),
+  }) {
+    if (isLoading != null) {
+      return isLoading();
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsLoadingPopular implements MovieStatePopular {
+  const factory _IsLoadingPopular() = _$_IsLoadingPopular;
+}
+
+/// @nodoc
+
+class _$_IsErrorPopular implements _IsErrorPopular {
+  const _$_IsErrorPopular(this.networkExceptions);
+
+  @override
+  final NetworkExceptions networkExceptions;
+
+  @override
+  String toString() {
+    return 'MovieStatePopular.isError(networkExceptions: $networkExceptions)';
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() isLoading,
+    required TResult Function(NetworkExceptions networkExceptions) isError,
+    required TResult Function(List<MoviePopular> moviePopular) loadedShow,
+  }) {
+    return isError(networkExceptions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? isLoading,
+    TResult? Function(NetworkExceptions networkExceptions)? isError,
+    TResult? Function(List<MoviePopular> moviePopular)? loadedShow,
+  }) {
+    return isError?.call(networkExceptions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? isLoading,
+    TResult Function(NetworkExceptions networkExceptions)? isError,
+    TResult Function(List<MoviePopular> moviePopular)? loadedShow,
+    required TResult orElse(),
+  }) {
+    if (isError != null) {
+      return isError(networkExceptions);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsErrorPopular implements MovieStatePopular {
+  const factory _IsErrorPopular(final NetworkExceptions networkExceptions) =
+      _$_IsErrorPopular;
+
+  NetworkExceptions get networkExceptions;
+}
+
+/// @nodoc
+
+class _$_LoadedShowPopular implements _LoadedShowPopular {
+  const _$_LoadedShowPopular(final List<MoviePopular> moviePopular)
+      : _moviePopular = moviePopular;
+
+  final List<MoviePopular> _moviePopular;
+  @override
+  List<MoviePopular> get moviePopular {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_moviePopular);
+  }
+
+  @override
+  String toString() {
+    return 'MovieStatePopular.loadedShow(moviePopular: $moviePopular)';
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() isLoading,
+    required TResult Function(NetworkExceptions networkExceptions) isError,
+    required TResult Function(List<MoviePopular> moviePopular) loadedShow,
+  }) {
+    return loadedShow(moviePopular);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? isLoading,
+    TResult? Function(NetworkExceptions networkExceptions)? isError,
+    TResult? Function(List<MoviePopular> moviePopular)? loadedShow,
+  }) {
+    return loadedShow?.call(moviePopular);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? isLoading,
+    TResult Function(NetworkExceptions networkExceptions)? isError,
+    TResult Function(List<MoviePopular> moviePopular)? loadedShow,
+    required TResult orElse(),
+  }) {
+    if (loadedShow != null) {
+      return loadedShow(moviePopular);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadedShowPopular implements MovieStatePopular {
+  const factory _LoadedShowPopular(final List<MoviePopular> moviePopular) =
+      _$_LoadedShowPopular;
+
+  List<MoviePopular> get moviePopular;
+}

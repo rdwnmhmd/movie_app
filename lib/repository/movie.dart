@@ -26,16 +26,16 @@ class MovieRepository {
     );
   }
 
-  // Future<ApiResult<List<Movie>>> showAll() async {
-  //   return await http.get(
-  //     '/discover/movie?api_key=f7db9854f528f8981be41750b1279725',
-  //     onSuccess: (response) {
-  //       log('$response >>>>>>');
-  //       return MovieTrending.fromJson(response.data).results;
-  //     },
-  //     authorization: true,
-  //   );
-  // }
+  Future<ApiResult<List<MoviePopular>>> showAll() async {
+    return await http.get(
+      '/discover/movie?api_key=f7db9854f528f8981be41750b1279725',
+      onSuccess: (response) {
+        log('$response >>>>>>');
+        return MovieResultPopular.fromJson(response.data).results;
+      },
+      authorization: true,
+    );
+  }
 }
 
 //   Future<ApiResult<List<BankAccount>>> showAll() async {

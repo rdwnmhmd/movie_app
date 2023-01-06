@@ -33,3 +33,36 @@ class MovieResult with _$MovieResult {
   factory MovieResult.fromJson(Map<String, dynamic> map) =>
       _$MovieResultFromJson(map);
 }
+
+@freezed
+class MoviePopular with _$MoviePopular {
+  const factory MoviePopular({
+    required int id,
+    required String title,
+    required String overview,
+    @JsonKey(name: "backdrop_path") required String backdropPath,
+    @JsonKey(name: "poster_path") required String posterPath,
+    @JsonKey(name: "release_date") required String releaseDate,
+    @JsonKey(name: "vote_average") required double voteAverage,
+  }) = _MoviePopular;
+
+  const MoviePopular._();
+
+  factory MoviePopular.fromJson(Map<String, dynamic> map) =>
+      _$MoviePopularFromJson(map);
+
+  get length => null;
+}
+
+@freezed
+class MovieResultPopular with _$MovieResultPopular {
+  const factory MovieResultPopular({
+    required int page,
+    List<MoviePopular>? results,
+    // List<MovieTrending>? object,
+    // @JsonKey(name: 'total_result') required int totalResult,
+    // @JsonKey(name: 'total_pages') required int totalPages,
+  }) = _ListPopular;
+  factory MovieResultPopular.fromJson(Map<String, dynamic> map) =>
+      _$MovieResultPopularFromJson(map);
+}

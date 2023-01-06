@@ -52,55 +52,8 @@ class MoviePage extends StatelessWidget {
         ],
         title: const AppbarTitleText(titleText: 'FilmKu'),
       ),
-      body: MovieBody(),
+      body: MovieBody(movieList: []),
       bottomNavigationBar: CustomButtomBar(),
-    );
-  }
-}
-
-class MovieBody extends StatelessWidget {
-  const MovieBody({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<MovieBloc, MovieState>(
-      bloc: context.read<MovieBloc>()..add(const MovieEvent.show()),
-      builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () => const ShimmerMovie(),
-          isError: (e) {
-            return StateWidget.error(
-              stateContentType: StateContentType.full,
-              error: e,
-              onRetry: () {
-                context.read<MovieBloc>().add(const MovieEvent.show());
-              },
-            );
-          },
-          loadedShow: (movieList) {
-            // print(movieList.length.toString());
-            return MovieList(movieList);
-            // return Container();
-          },
-        );
-      },
-    );
-  }
-}
-
-class MovieList extends StatelessWidget {
-  final List<Movie> movieList;
-  const MovieList(this.movieList, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          ListShowing(movieList: movieList),
-          ListPopular(movieList: movieList),
-        ],
-      ),
     );
   }
 }

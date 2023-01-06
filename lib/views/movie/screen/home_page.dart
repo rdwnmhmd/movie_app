@@ -9,100 +9,45 @@ import 'package:movie_app/logic/bloc/outlet/outlet_bloc.dart';
 import 'package:movie_app/models/model_movie/movie.dart';
 import 'package:movie_app/views/movie/component/myTypography.dart';
 import 'package:movie_app/views/movie/component/my_colors.dart';
+import 'package:movie_app/views/movie/screen/list_popular.dart';
+import 'package:movie_app/views/movie/screen/list_showing.dart';
 import 'package:movie_app/views/movie/widget/buttom_navigationbar.dart';
 import 'package:movie_app/views/movie/widget/shimmer_movie.dart';
 
-class ListShowing extends StatelessWidget {
-  const ListShowing({
-    Key? key,
-    required this.movieList,
-  }) : super(key: key);
+import 'package:flutter/material.dart';
 
+class MovieBody extends StatelessWidget {
+  const MovieBody({Key? key, required this.movieList}) : super(key: key);
   final List<Movie> movieList;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Now Showing',
-                style: MyTypography.textMedium
-                    .copyWith(color: MyColors.darkPurple2),
+    return BlocBuilder<MovieBloc, MovieState>(
+      bloc: context.read<MovieBloc>()..add(const MovieEvent.show()),
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => const ShimmerMovie(),
+          isError: (e) {
+            return StateWidget.error(
+              stateContentType: StateContentType.full,
+              error: e,
+              onRetry: () {
+                context.read<MovieBloc>().add(const MovieEvent.show());
+              },
+            );
+          },
+          loadedShow: (movieList) {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  ListShowing(movieList: movieList),
+                  ListPopular(movieList: movieList)
+                ],
               ),
-              Text(
-                'See All',
-                style: MyTypography.textSmall.copyWith(color: MyColors.grey4),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Container(
-            height: 200,
-            child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        height: 185,
-                        width: 120,
-                        margin: EdgeInsets.only(bottom: 8),
-                        decoration: BoxDecoration(
-                            color: MyColors.grey4,
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                      // SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Pop',
-                            maxLines: 2,
-                            style: MyTypography.textSmall
-                                .copyWith(color: MyColors.darkPurple2),
-                          ),
-                          Text('Rating'),
-                          Row(
-                            children: [
-                              Container(
-                                  height: 18,
-                                  width: 61,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: MyColors.grey4),
-                                  child: Text(
-                                    'Horror',
-                                    textAlign: TextAlign.center,
-                                  )),
-                              SizedBox(width: 8),
-                              Container(
-                                  height: 18,
-                                  width: 61,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: MyColors.grey4),
-                                  child: Text(
-                                    'Horror',
-                                    textAlign: TextAlign.center,
-                                  )),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  );
-                }),
-          ),
-        ],
-      ),
+            );
+          },
+        );
+      },
     );
   }
 }

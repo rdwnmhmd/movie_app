@@ -81,14 +81,14 @@ class ListShowing extends StatelessWidget {
                                 width: 180,
                                 height: 180,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: MyColors.grey4
-                                    // image: DecorationImage(
-                                    //   image: NetworkImage(
-                                    //       'https://image.tmdb.org/t/p/w500/${movieList[index].posterPath}'),
-                                    //   fit: BoxFit.cover,
-                                    // ),
-                                    ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: MyColors.grey4,
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://image.tmdb.org/t/p/w500/${movieList[index].posterPath}'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
                               //bottom of card
                               Row(

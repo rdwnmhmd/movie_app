@@ -23,7 +23,7 @@ class Myhome extends StatelessWidget {
               create: (context) => MovieBloc()..add(const MovieEvent.show()),
             ),
           ],
-          child: LoginPage(),
+          child: MoviePage(),
         ),
       ),
     );

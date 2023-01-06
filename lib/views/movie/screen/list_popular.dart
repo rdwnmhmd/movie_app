@@ -59,11 +59,11 @@ class ListPopular extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: MyColors.grey4,
                         borderRadius: BorderRadius.circular(10),
-                        // image: DecorationImage(
-                        // //   image: NetworkImage(
-                        // //       'https://image.tmdb.org/t/p/w500/${movieList[index].posterPath}'),
-                        // //   fit: BoxFit.cover,
-                        // ),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              'https://image.tmdb.org/t/p/w500/${movieList[index].posterPath}'),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     SizedBox(width: 10),
