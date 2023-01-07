@@ -43,19 +43,21 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   }
 }
 
+// Bloc Movie Data Popular
+//----------------------------------------------------
 class MovieBlocPopular extends Bloc<MovieEvent, MovieStatePopular> {
   MovieBlocPopular() : super(const _InitialPopular()) {
-    on<MovieEvent>(_onMovieEventPopular);
+    on<MovieEvent>(_onMovieEvent);
   }
 
-  Future<void> _onMovieEventPopular(
+  Future<void> _onMovieEvent(
       MovieEvent event, Emitter<MovieStatePopular> emit) async {
     await event.when(
       started: () async {},
       show: () async {
         emit(_getLoadingState());
         final ApiResult<List<MoviePopular>> apiResult =
-            await MovieRepository().showAll();
+            await MovieRepository().showPopular();
         apiResult.when(
           success: (data) async {
             // log(data.length.toString());

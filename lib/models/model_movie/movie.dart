@@ -34,6 +34,7 @@ class MovieResult with _$MovieResult {
       _$MovieResultFromJson(map);
 }
 
+//// Model Data Popular
 @freezed
 class MoviePopular with _$MoviePopular {
   const factory MoviePopular({

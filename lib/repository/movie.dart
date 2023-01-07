@@ -26,11 +26,13 @@ class MovieRepository {
     );
   }
 
-  Future<ApiResult<List<MoviePopular>>> showAll() async {
+  Future<ApiResult<List<MoviePopular>>> showPopular() async {
     return await http.get(
       '/discover/movie?api_key=f7db9854f528f8981be41750b1279725',
+
+      // '/trending/tv/week?api_key=f7db9854f528f8981be41750b1279725',
       onSuccess: (response) {
-        log('$response >>>>>>');
+        log('$response <<<<<<<<<<<');
         return MovieResultPopular.fromJson(response.data).results;
       },
       authorization: true,

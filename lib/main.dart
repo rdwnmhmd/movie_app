@@ -22,6 +22,10 @@ class Myhome extends StatelessWidget {
             BlocProvider<MovieBloc>(
               create: (context) => MovieBloc()..add(const MovieEvent.show()),
             ),
+            BlocProvider<MovieBlocPopular>(
+              create: (context) =>
+                  MovieBlocPopular()..add(const MovieEvent.show()),
+            )
           ],
           child: MoviePage(),
         ),

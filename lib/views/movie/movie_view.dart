@@ -22,10 +22,7 @@ class MovieWrapperRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: ((context) => MovieBloc()..add(const MovieEvent.show())),
-      child: const MoviePage(),
-    );
+    return MoviePage();
   }
 }
 
@@ -52,7 +49,7 @@ class MoviePage extends StatelessWidget {
         ],
         title: const AppbarTitleText(titleText: 'FilmKu'),
       ),
-      body: MovieBody(movieList: []),
+      body: MovieBody(),
       bottomNavigationBar: CustomButtomBar(),
     );
   }

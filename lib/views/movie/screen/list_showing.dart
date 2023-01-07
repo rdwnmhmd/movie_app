@@ -18,49 +18,39 @@ import 'detail_movie.dart';
 class ListShowing extends StatelessWidget {
   const ListShowing({
     Key? key,
-    required this.movieList,
   }) : super(key: key);
-
-  final List<Movie> movieList;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Now Showing',
-                style: MyTypography.textMedium
-                    .copyWith(color: MyColors.darkPurple2),
-              ),
-              Text(
-                'See All',
-                style: MyTypography.textSmall.copyWith(color: MyColors.grey4),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Container(
-            height: 300,
-            child: ListView.builder(
+    return BlocBuilder<MovieBlocPopular, MovieStatePopular>(
+      bloc: context.read<MovieBlocPopular>()..add(const MovieEvent.show()),
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => const ShimmerMovie(),
+          isError: (e) {
+            return StateWidget.error(
+              stateContentType: StateContentType.full,
+              error: e,
+              onRetry: () {
+                context.read<MovieBlocPopular>().add(const MovieEvent.show());
+              },
+            );
+          },
+          loadedShow: (movieList) {
+            return ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: movieList.length,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    log('Di Klik');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            DetailFilm(data: movieList[index]),
-                      ),
-                    );
+                    // log('Di Klik');
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) =>
+                    //         DetailFilm(data: movieList[index]),
+                    //   ),
+                    // );
                   },
                   child: Row(
                     children: [
@@ -71,11 +61,11 @@ class ListShowing extends StatelessWidget {
                         ),
                         width: 190,
                         height: 300,
-                        margin: EdgeInsets.only(left: 10),
+                        margin: EdgeInsets.only(top: 8),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Container(
                                 width: 180,
@@ -136,10 +126,10 @@ class ListShowing extends StatelessWidget {
                   ),
                 );
               },
-            ),
-          ),
-        ],
-      ),
+            );
+          },
+        );
+      },
     );
   }
 }
